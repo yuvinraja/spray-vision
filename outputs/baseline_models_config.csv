@@ -1,0 +1,7 @@
+Model,Type,Multi-Output Handling,Key Hyperparameters
+Linear Regression,Linear,MultiOutputRegressor,None (deterministic defaults)
+Decision Tree,Tree-based,MultiOutputRegressor,"max_depth ? {None, 5, 10, 20}; min_samples_leaf ? {1, 2, 5}; random_state = 42"
+Random Forest,Ensemble (Bagging),MultiOutputRegressor,"n_estimators ? {200, 400}; max_depth ? {None, 10, 20}; max_features ? {""sqrt"", ""auto""}; random_state = 42"
+Gradient Boosting,Ensemble (Boosting),MultiOutputRegressor,"n_estimators ? {300, 500}; learning_rate ? {0.05, 0.1}; max_depth ? {3, 4}; random_state = 42"
+SVR,Kernel-based,MultiOutputRegressor,"C ? {10, 100}; gamma = ""scale""; epsilon ? {0.01, 0.1}; kernel = ""rbf"""
+K-Nearest Neighbors,Distance-based,MultiOutputRegressor,"n_neighbors ? {5, 7, 9}; weights ? {""uniform"", ""distance""}"
