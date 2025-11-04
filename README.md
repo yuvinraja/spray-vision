@@ -268,6 +268,57 @@ Detailed analysis and results are available in the `reports/` directory, includi
 - Review reports with comprehensive analysis
 - Performance comparisons and insights
 
+## Documentation
+
+Comprehensive documentation is available in multiple guides:
+
+### 📚 Complete Documentation Suite
+
+1. **[PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md)** - Complete project overview
+   - What is Spray Vision?
+   - Project goals and objectives
+   - Scientific background
+   - Architecture and technology stack
+   - Research context
+
+2. **[TECHNICAL_DOCUMENTATION.md](TECHNICAL_DOCUMENTATION.md)** - Technical specifications
+   - System architecture details
+   - Data processing pipeline
+   - Machine learning models
+   - Neural network architecture
+   - API reference and configuration
+
+3. **[NOTEBOOKS_GUIDE.md](NOTEBOOKS_GUIDE.md)** - Detailed notebook documentation
+   - All 5 notebooks explained in detail
+   - Cell-by-cell breakdown
+   - Execution order and dependencies
+   - Tips and best practices
+
+4. **[DATA_PIPELINE.md](DATA_PIPELINE.md)** - Data pipeline documentation
+   - Raw data specification
+   - Data extraction and transformation
+   - Quality assurance procedures
+   - Processed data format
+
+5. **[MODELS_DOCUMENTATION.md](MODELS_DOCUMENTATION.md)** - Model documentation
+   - All 7 models detailed
+   - Performance comparison
+   - Deployment guidelines
+   - Model selection guide
+
+6. **[USER_GUIDE.md](USER_GUIDE.md)** - Practical user guide
+   - Quick start tutorial
+   - Step-by-step instructions
+   - Common tasks and workflows
+   - Troubleshooting and FAQ
+
+### Quick Links
+
+- **Getting Started**: See [USER_GUIDE.md](USER_GUIDE.md) Quick Start section
+- **Understanding the Models**: See [MODELS_DOCUMENTATION.md](MODELS_DOCUMENTATION.md)
+- **Deploying Models**: See [MODELS_DOCUMENTATION.md](MODELS_DOCUMENTATION.md#deployment-guide)
+- **Technical Details**: See [TECHNICAL_DOCUMENTATION.md](TECHNICAL_DOCUMENTATION.md)
+
 ## License
 
 This project is structured using the Cookiecutter Data Science template.
