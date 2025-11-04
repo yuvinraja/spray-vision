@@ -6,6 +6,24 @@
 
 A comprehensive machine learning project for predicting spray characteristics using various classical ML approaches and artificial neural networks.
 
+---
+
+## 📚 Complete Documentation Available
+
+**NEW**: This project now includes over **150 KB of comprehensive documentation** covering every aspect of the system!
+
+👉 **Start here**: [DOCUMENTATION_INDEX.md](DOCUMENTATION_INDEX.md) - Your complete guide to all documentation
+
+**Quick Links**:
+- 🚀 [Quick Start Guide](USER_GUIDE.md#quick-start) - Get started in 5 minutes
+- 📖 [Project Overview](PROJECT_DOCUMENTATION.md) - Understand the project
+- 🔧 [Technical Specs](TECHNICAL_DOCUMENTATION.md) - Deep technical details
+- 📊 [Models Documentation](MODELS_DOCUMENTATION.md) - All 7 models explained
+- 💻 [Notebooks Guide](NOTEBOOKS_GUIDE.md) - Detailed notebook documentation
+- 🔄 [Data Pipeline](DATA_PIPELINE.md) - Data processing details
+
+---
+
 ## Project Overview
 
 This project implements multiple machine learning models to predict spray characteristics based on experimental data. The system compares the performance of various algorithms including traditional ML methods and deep learning approaches to identify the most effective model for spray prediction.
@@ -267,6 +285,57 @@ The project uses:
 Detailed analysis and results are available in the `reports/` directory, including:
 - Review reports with comprehensive analysis
 - Performance comparisons and insights
+
+## Documentation
+
+Comprehensive documentation is available in multiple guides:
+
+### 📚 Complete Documentation Suite
+
+1. **[PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md)** - Complete project overview
+   - What is Spray Vision?
+   - Project goals and objectives
+   - Scientific background
+   - Architecture and technology stack
+   - Research context
+
+2. **[TECHNICAL_DOCUMENTATION.md](TECHNICAL_DOCUMENTATION.md)** - Technical specifications
+   - System architecture details
+   - Data processing pipeline
+   - Machine learning models
+   - Neural network architecture
+   - API reference and configuration
+
+3. **[NOTEBOOKS_GUIDE.md](NOTEBOOKS_GUIDE.md)** - Detailed notebook documentation
+   - All 5 notebooks explained in detail
+   - Cell-by-cell breakdown
+   - Execution order and dependencies
+   - Tips and best practices
+
+4. **[DATA_PIPELINE.md](DATA_PIPELINE.md)** - Data pipeline documentation
+   - Raw data specification
+   - Data extraction and transformation
+   - Quality assurance procedures
+   - Processed data format
+
+5. **[MODELS_DOCUMENTATION.md](MODELS_DOCUMENTATION.md)** - Model documentation
+   - All 7 models detailed
+   - Performance comparison
+   - Deployment guidelines
+   - Model selection guide
+
+6. **[USER_GUIDE.md](USER_GUIDE.md)** - Practical user guide
+   - Quick start tutorial
+   - Step-by-step instructions
+   - Common tasks and workflows
+   - Troubleshooting and FAQ
+
+### Quick Links
+
+- **Getting Started**: See [USER_GUIDE.md](USER_GUIDE.md) Quick Start section
+- **Understanding the Models**: See [MODELS_DOCUMENTATION.md](MODELS_DOCUMENTATION.md)
+- **Deploying Models**: See [MODELS_DOCUMENTATION.md](MODELS_DOCUMENTATION.md#deployment-guide)
+- **Technical Details**: See [TECHNICAL_DOCUMENTATION.md](TECHNICAL_DOCUMENTATION.md)
 
 ## License
 
