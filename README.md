@@ -6,6 +6,24 @@
 
 A comprehensive machine learning project for predicting spray characteristics using various classical ML approaches and artificial neural networks.
 
+---
+
+## 📚 Complete Documentation Available
+
+**NEW**: This project now includes over **150 KB of comprehensive documentation** covering every aspect of the system!
+
+👉 **Start here**: [DOCUMENTATION_INDEX.md](DOCUMENTATION_INDEX.md) - Your complete guide to all documentation
+
+**Quick Links**:
+- 🚀 [Quick Start Guide](USER_GUIDE.md#quick-start) - Get started in 5 minutes
+- 📖 [Project Overview](PROJECT_DOCUMENTATION.md) - Understand the project
+- 🔧 [Technical Specs](TECHNICAL_DOCUMENTATION.md) - Deep technical details
+- 📊 [Models Documentation](MODELS_DOCUMENTATION.md) - All 7 models explained
+- 💻 [Notebooks Guide](NOTEBOOKS_GUIDE.md) - Detailed notebook documentation
+- 🔄 [Data Pipeline](DATA_PIPELINE.md) - Data processing details
+
+---
+
 ## Project Overview
 
 This project implements multiple machine learning models to predict spray characteristics based on experimental data. The system compares the performance of various algorithms including traditional ML methods and deep learning approaches to identify the most effective model for spray prediction.
