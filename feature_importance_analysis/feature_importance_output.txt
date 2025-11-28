@@ -1,0 +1,479 @@
+================================================================================
+FEATURE IMPORTANCE ANALYSIS - 5 FEATURES (NO TIME)
+================================================================================
+
+Loading preprocessed dataset...
+Dataset shape: (726, 11)
+
+Columns: ['run', 'Time_ms', 'Pc_bar', 'Tc_K', 'Pinj_bar', 'rho_kgm3', 'mu_Pas', 'angle_shadow_deg', 'len_shadow_L_D', 'angle_mie_deg', 'len_mie_L_D']
+
+================================================================================
+DATASET STATISTICS
+================================================================================
+Total number of observations: 726
+Number of unique runs: 6
+Time range: 0.000 ms to 3.000 ms
+
+Time value counts:
+Time_ms
+0.000    6
+0.025    6
+0.050    6
+0.075    6
+0.100    6
+0.125    6
+0.150    6
+0.175    6
+0.200    6
+0.225    6
+Name: count, dtype: int64
+
+================================================================================
+DATA PREPARATION STRATEGY
+================================================================================
+
+Approach: Use all temporal observations without Time as a feature
+  - This treats each time point as an independent observation
+  - Model learns average relationship between conditions and spray behavior
+  - Captures both transient and quasi-steady effects
+
+Dataset: 726 observations
+Number of unique experimental runs: 6
+Time points per run: 121
+
+Time range: 0.000 ms to 3.000 ms
+Number of unique time points: 121
+
+================================================================================
+FEATURE AND TARGET DEFINITIONS
+================================================================================
+
+Input Features (5):
+  1. Pc_bar
+  2. Tc_K
+  3. Pinj_bar
+  4. rho_kgm3
+  5. mu_Pas
+
+Target Variables (4):
+  1. angle_shadow_deg: Spray Cone Angle (Shadowgraphy)
+  2. len_shadow_L_D: Spray Penetration Length (Shadowgraphy)
+  3. angle_mie_deg: Spray Cone Angle (Mie Scattering)
+  4. len_mie_L_D: Spray Penetration Length (Mie Scattering)
+
+
+Feature matrix shape: (726, 5)
+Missing values in features: 0
+
+================================================================================
+FEATURE STATISTICS (ALL TIME POINTS)
+================================================================================
+           Pc_bar        Tc_K    Pinj_bar    rho_kgm3      mu_Pas
+count  726.000000  726.000000  726.000000  726.000000  726.000000
+mean    65.019419  258.137283  108.429146  782.042263    0.001374
+std      9.998905   46.841526    9.988893   41.651589    0.000728
+min     54.995650  191.733413   94.246025  721.843330    0.000342
+25%     55.025825  192.050107   98.764663  724.543792    0.000349
+50%     65.023150  290.880986  108.509466  810.720160    0.001879
+75%     75.009837  291.547624  118.207922  812.210693    0.001898
+max     75.048050  291.729725  122.404313  812.213757    0.001898
+
+================================================================================
+GRADIENT BOOSTING MODEL CONFIGURATION
+================================================================================
+
+Hyperparameters:
+  n_estimators: 300
+  learning_rate: 0.05
+  max_depth: 5
+  min_samples_split: 4
+  min_samples_leaf: 2
+  subsample: 0.8
+  max_features: sqrt
+  random_state: 42
+  verbose: 0
+
+================================================================================
+ANALYZING TARGET: Spray Cone Angle (Shadowgraphy)
+Variable: angle_shadow_deg
+================================================================================
+
+Target statistics:
+  Valid samples: 726
+  Mean: 18.909
+  Std: 1.218
+  Min: 16.404
+  Max: 21.180
+
+Data split:
+  Training samples: 580
+  Testing samples: 146
+
+Training Gradient Boosting Regressor...
+
+Metric               Training        Testing
+--------------------------------------------------
+R▓ Score             0.9908          0.8739
+RMSE                 0.1187          0.4061
+MAE                  0.0920          0.2729
+
+Performing 5-fold cross-validation...
+  CV R▓ Scores: [-0.05496629  0.23192732 -1.29511986 -0.46794372 -0.2665973 ]
+  CV R▓ Mean: -0.3705 (+/- 1.0345)
+
+================================================================================
+FEATURE IMPORTANCE ANALYSIS
+================================================================================
+
+1. Built-in Feature Importance (Mean Decrease in Impurity):
+
+ Feature  Importance  Importance_%
+rho_kgm3    0.254321     25.432092
+  mu_Pas    0.246491     24.649111
+Pinj_bar    0.195222     19.522236
+    Tc_K    0.190398     19.039823
+  Pc_bar    0.113567     11.356738
+
+2. Permutation Importance (Test Set):
+
+ Feature  Importance      Std  Importance_%
+rho_kgm3    0.329837 0.030081     30.323670
+Pinj_bar    0.274384 0.031729     25.225546
+  mu_Pas    0.254715 0.026253     23.417257
+    Tc_K    0.153339 0.015770     14.097233
+  Pc_bar    0.075448 0.013932      6.936295
+
+3. Permutation Importance (Training Set):
+
+ Feature  Importance      Std  Importance_%
+rho_kgm3    0.331708 0.012604     28.514362
+Pinj_bar    0.288073 0.012477     24.763378
+  mu_Pas    0.283516 0.010842     24.371668
+    Tc_K    0.146723 0.006327     12.612671
+  Pc_bar    0.113281 0.006005      9.737921
+
+================================================================================
+ANALYZING TARGET: Spray Penetration Length (Shadowgraphy)
+Variable: len_shadow_L_D
+================================================================================
+
+Target statistics:
+  Valid samples: 726
+  Mean: 130.907
+  Std: 50.784
+  Min: 13.127
+  Max: 213.870
+
+Data split:
+  Training samples: 580
+  Testing samples: 146
+
+Training Gradient Boosting Regressor...
+
+Metric               Training        Testing
+--------------------------------------------------
+R▓ Score             0.9561          0.6445
+RMSE                 10.7100         28.8164
+MAE                  8.6318          23.4873
+
+Performing 5-fold cross-validation...
+  CV R▓ Scores: [ 0.22099793 -2.20108939 -0.32499364 -1.19630371  0.20811255]
+  CV R▓ Mean: -0.6587 (+/- 1.8557)
+
+================================================================================
+FEATURE IMPORTANCE ANALYSIS
+================================================================================
+
+1. Built-in Feature Importance (Mean Decrease in Impurity):
+
+ Feature  Importance  Importance_%
+Pinj_bar    0.535454     53.545373
+  Pc_bar    0.143599     14.359897
+    Tc_K    0.141128     14.112791
+  mu_Pas    0.097113      9.711282
+rho_kgm3    0.082707      8.270656
+
+2. Permutation Importance (Test Set):
+
+ Feature  Importance      Std  Importance_%
+Pinj_bar    1.765566 0.157291     80.907951
+  Pc_bar    0.200098 0.036761      9.169583
+    Tc_K    0.110977 0.019384      5.085595
+  mu_Pas    0.069672 0.020122      3.192749
+rho_kgm3    0.035878 0.013351      1.644122
+
+3. Permutation Importance (Training Set):
+
+ Feature  Importance      Std  Importance_%
+Pinj_bar    1.457296 0.054942     67.073086
+  Pc_bar    0.315443 0.017962     14.518509
+    Tc_K    0.166334 0.007598      7.655635
+  mu_Pas    0.154141 0.008517      7.094432
+rho_kgm3    0.079485 0.004293      3.658337
+
+================================================================================
+ANALYZING TARGET: Spray Cone Angle (Mie Scattering)
+Variable: angle_mie_deg
+================================================================================
+
+Target statistics:
+  Valid samples: 726
+  Mean: 13.255
+  Std: 1.298
+  Min: 11.752
+  Max: 16.236
+
+Data split:
+  Training samples: 580
+  Testing samples: 146
+
+Training Gradient Boosting Regressor...
+
+Metric               Training        Testing
+--------------------------------------------------
+R▓ Score             0.9932          0.9202
+RMSE                 0.1067          0.3707
+MAE                  0.0811          0.2604
+
+Performing 5-fold cross-validation...
+  CV R▓ Scores: [ 0.09148977  0.34573365 -0.31147374 -0.74621441  0.05276202]
+  CV R▓ Mean: -0.1135 (+/- 0.7590)
+
+================================================================================
+FEATURE IMPORTANCE ANALYSIS
+================================================================================
+
+1. Built-in Feature Importance (Mean Decrease in Impurity):
+
+ Feature  Importance  Importance_%
+    Tc_K    0.498141     49.814074
+Pinj_bar    0.215195     21.519450
+  mu_Pas    0.120938     12.093786
+rho_kgm3    0.088691      8.869126
+  Pc_bar    0.077036      7.703564
+
+2. Permutation Importance (Test Set):
+
+ Feature  Importance      Std  Importance_%
+    Tc_K    1.068170 0.100586     71.503886
+Pinj_bar    0.258382 0.031937     17.296213
+rho_kgm3    0.069736 0.012254      4.668197
+  mu_Pas    0.065160 0.010468      4.361876
+  Pc_bar    0.032414 0.007535      2.169827
+
+3. Permutation Importance (Training Set):
+
+ Feature  Importance      Std  Importance_%
+    Tc_K    0.984607 0.043326     61.997500
+Pinj_bar    0.342106 0.017959     21.541338
+  mu_Pas    0.099578 0.004172      6.270123
+  Pc_bar    0.082266 0.004990      5.180039
+rho_kgm3    0.079582 0.003249      5.011000
+
+================================================================================
+ANALYZING TARGET: Spray Penetration Length (Mie Scattering)
+Variable: len_mie_L_D
+================================================================================
+
+Target statistics:
+  Valid samples: 726
+  Mean: 131.759
+  Std: 48.389
+  Min: 17.164
+  Max: 211.938
+
+Data split:
+  Training samples: 580
+  Testing samples: 146
+
+Training Gradient Boosting Regressor...
+
+Metric               Training        Testing
+--------------------------------------------------
+R▓ Score             0.9586          0.6798
+RMSE                 9.9071          26.0994
+MAE                  7.9710          21.2600
+
+Performing 5-fold cross-validation...
+  CV R▓ Scores: [ 0.25625442 -2.59125116 -0.32036612 -1.10334319  0.11639903]
+  CV R▓ Mean: -0.7285 (+/- 2.0901)
+
+================================================================================
+FEATURE IMPORTANCE ANALYSIS
+================================================================================
+
+1. Built-in Feature Importance (Mean Decrease in Impurity):
+
+ Feature  Importance  Importance_%
+Pinj_bar    0.542652     54.265196
+  Pc_bar    0.147323     14.732278
+    Tc_K    0.124867     12.486745
+  mu_Pas    0.109248     10.924798
+rho_kgm3    0.075910      7.590983
+
+2. Permutation Importance (Test Set):
+
+ Feature  Importance      Std  Importance_%
+Pinj_bar    1.764663 0.153973     78.917399
+  Pc_bar    0.212714 0.034881      9.512764
+    Tc_K    0.109152 0.020592      4.881377
+  mu_Pas    0.105847 0.020339      4.733555
+rho_kgm3    0.043713 0.009961      1.954906
+
+3. Permutation Importance (Training Set):
+
+ Feature  Importance      Std  Importance_%
+Pinj_bar    1.475416 0.055427     68.321905
+  Pc_bar    0.293138 0.015681     13.574295
+  mu_Pas    0.160231 0.008386      7.419798
+    Tc_K    0.150623 0.006414      6.974898
+rho_kgm3    0.080098 0.004803      3.709103
+
+================================================================================
+GENERATING COMPREHENSIVE VISUALIZATIONS
+================================================================================
+
+Saved: ../plots/feature_importance_comprehensive.png
+Saved: ../plots/feature_importance_aggregated.png
+Saved: ../plots/model_performance_prediction.png
+Saved: ../plots/feature_importance_heatmap.png
+
+================================================================================
+SUMMARY REPORT: FEATURE IMPORTANCE ANALYSIS
+================================================================================
+
+1. AGGREGATED FEATURE RANKINGS (Mean Across All Targets)
+--------------------------------------------------------------------------------
+
+Built-in Feature Importance:
+  Pinj_bar         37.21%
+  Tc_K             23.86%
+  mu_Pas           14.34%
+  rho_kgm3         12.54%
+  Pc_bar           12.04%
+
+Permutation Importance (Test Set):
+  Pinj_bar         50.59%
+  Tc_K             23.89%
+  rho_kgm3          9.65%
+  mu_Pas            8.93%
+  Pc_bar            6.95%
+
+Permutation Importance (Training Set):
+  Pinj_bar         45.42%
+  Tc_K             22.31%
+  mu_Pas           11.29%
+  Pc_bar           10.75%
+  rho_kgm3         10.22%
+
+2. MODEL PERFORMANCE SUMMARY
+--------------------------------------------------------------------------------
+
+                                   Target  Train_R2  Test_R2  CV_R2_Mean  Test_RMSE  Test_MAE
+          Spray Cone Angle (Shadowgraphy)  0.990758 0.873855   -0.370540   0.406067  0.272871
+  Spray Penetration Length (Shadowgraphy)  0.956100 0.644507   -0.658655  28.816407 23.487309
+        Spray Cone Angle (Mie Scattering)  0.993198 0.920204   -0.113541   0.370735  0.260433
+Spray Penetration Length (Mie Scattering)  0.958582 0.679765   -0.728461  26.099382 21.259972
+
+3. TARGET-SPECIFIC FEATURE RANKINGS
+--------------------------------------------------------------------------------
+
+Spray Cone Angle (Shadowgraphy):
+  Top 3 Features (Built-in):
+    rho_kgm3         25.43%
+    mu_Pas           24.65%
+    Pinj_bar         19.52%
+  Top 3 Features (Permutation - Test):
+    rho_kgm3         30.32% (▒0.0301)
+    Pinj_bar         25.23% (▒0.0317)
+    mu_Pas           23.42% (▒0.0263)
+
+Spray Penetration Length (Shadowgraphy):
+  Top 3 Features (Built-in):
+    Pinj_bar         53.55%
+    Pc_bar           14.36%
+    Tc_K             14.11%
+  Top 3 Features (Permutation - Test):
+    Pinj_bar         80.91% (▒0.1573)
+    Pc_bar            9.17% (▒0.0368)
+    Tc_K              5.09% (▒0.0194)
+
+Spray Cone Angle (Mie Scattering):
+  Top 3 Features (Built-in):
+    Tc_K             49.81%
+    Pinj_bar         21.52%
+    mu_Pas           12.09%
+  Top 3 Features (Permutation - Test):
+    Tc_K             71.50% (▒0.1006)
+    Pinj_bar         17.30% (▒0.0319)
+    rho_kgm3          4.67% (▒0.0123)
+
+Spray Penetration Length (Mie Scattering):
+  Top 3 Features (Built-in):
+    Pinj_bar         54.27%
+    Pc_bar           14.73%
+    Tc_K             12.49%
+  Top 3 Features (Permutation - Test):
+    Pinj_bar         78.92% (▒0.1540)
+    Pc_bar            9.51% (▒0.0349)
+    Tc_K              4.88% (▒0.0206)
+
+================================================================================
+PHYSICAL INTERPRETATION
+================================================================================
+
+Based on the feature importance analysis without time as a predictor, we can 
+interpret the results in the context of spray physics:
+
+KEY FINDING: Without temporal information, the model must rely solely on 
+thermodynamic and fuel properties to predict spray characteristics. This reveals
+which conditions most strongly correlate with observed spray behavior across all
+stages of spray development.
+
+CHAMBER PRESSURE (Pc_bar):
+- Expected to dominate spray cone angle predictions (aerodynamic spreading)
+- Higher ambient density forces spray to widen via aerodynamic interactions
+- Creates drag that affects penetration length
+- Physical mechanism: rho_ambient is proportional to P_chamber / (R*T_chamber)
+
+CHAMBER TEMPERATURE (Tc_K):
+- Expected to dominate liquid penetration length (evaporation effects)
+- Higher temperature accelerates fuel evaporation at liquid/vapor boundary
+- Affects spray angle by altering evaporation at spray edges
+- Physical mechanism: Evaporation rate proportional to exp(-deltaH_vap / R*T_chamber)
+
+INJECTION PRESSURE (Pinj_bar):
+- Affects initial atomization energy and droplet momentum
+- Higher injection pressure leads to finer atomization and wider spray angle
+- Influences penetration through initial jet velocity
+- Physical mechanism: v_jet proportional to sqrt(deltaP_injection)
+
+FUEL DENSITY (rho_kgm3):
+- Influences momentum flux and penetration via inertia
+- Affects atomization quality and droplet size distribution
+- Physical mechanism: Momentum proportional to rho_fuel * v_jet^2
+
+FUEL VISCOSITY (mu_Pas):
+- Controls liquid breakup mechanisms and droplet formation
+- Lower viscosity promotes faster atomization and wider spray
+- Affects liquid length through breakup timescales
+- Physical mechanism: Ohnesorge number Oh = sqrt(We/Re) proportional to mu/(rho*sigma*d)^0.5
+
+EXPECTED RANKINGS:
+For Spray Cone Angle: Pc_bar > Pinj_bar > Tc_K > mu_Pas > rho_kgm3
+For Penetration Length: Tc_K > Pc_bar > Pinj_bar > rho_kgm3 > mu_Pas
+
+The model's feature importance rankings reveal which parameters have the strongest
+statistical association with spray characteristics when temporal evolution is not
+explicitly modeled.
+
+
+================================================================================
+ANALYSIS COMPLETE
+================================================================================
+
+All visualizations saved to: ../plots/
+  - feature_importance_comprehensive.png
+  - feature_importance_aggregated.png
+  - model_performance_prediction.png
+  - feature_importance_heatmap.png

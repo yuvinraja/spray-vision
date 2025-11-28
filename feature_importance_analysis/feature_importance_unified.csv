@@ -1,0 +1,6 @@
+Feature,Mean_Importance,Std_Importance
+cham_temp,0.4517,0.4391
+injection_pres,0.3327,0.3723
+chamb_pressure,0.1231,0.1293
+density,0.0478,0.0518
+viscosity,0.0447,0.0553
